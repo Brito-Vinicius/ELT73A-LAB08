@@ -479,6 +479,7 @@ void StartAN1task(void *argument)
   for (;;)
   {
     voltage1 = (ADC1IN1 * 3.3) / 4095;
+    osMutexAcquire(SensorAMutexHandle, osWaitForever); // Lock the mutex for SensorA
     DiffA = ADC1IN1 - ADC1IN2;
     sensorA = (sensorA + ADC1IN1) / 2;
     osDelay(1);
@@ -500,6 +501,7 @@ void StartAN2task(void *argument)
   for (;;)
   {
     voltage2 = (ADC1IN2 * 3.3) / 4095;
+    osMutexAcquire(SensorAMutexHandle, osWaitForever); // Lock the mutex for SensorA
     DiffA = ADC1IN1 - ADC1IN2;
     sensorA = (sensorA + ADC1IN2) / 2;
     osDelay(1);
@@ -521,6 +523,7 @@ void StartAN3task(void *argument)
   for (;;)
   {
     voltage3 = (ADC1IN3 * 3.3) / 4095;
+    osMutexAcquire(SensorBMutexHandle, osWaitForever); // Lock the mutex for SensorB
     DiffB = ADC1IN3 - ADC1IN4;
     sensorB = (sensorB + ADC1IN3) / 2;
     osDelay(1);
@@ -541,6 +544,10 @@ void StartAN4task(void *argument)
   /* Infinite loop */
   for (;;)
   {
+    voltage4 = (ADC1IN4 * 3.3) / 4095;
+    osMutexAcquire(SensorBMutexHandle, osWaitForever); // Lock the mutex for SensorB
+    DiffB = ADC1IN3 - ADC1IN4;
+    sensorB = (sensorB + ADC1IN4) / 2;
     osDelay(1);
   }
   /* USER CODE END StartAN4task */
