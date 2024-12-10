@@ -1,0 +1,35 @@
+[
+    {
+        "id": "a09aec78799474d2",
+        "type": "influxdb out",
+        "z": "9b5293f6f1777d17",
+        "influxdb": "49c368480b4ef91d",
+        "name": "",
+        "measurement": "Sensor A",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "ELT73A-LAB08",
+        "bucket": "GS22-I",
+        "x": 1210,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "49c368480b4ef91d",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "database",
+        "name": "",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "https://influxdb.adrianoruseler.com",
+        "timeout": "10",
+        "rejectUnauthorized": true
+    }
+]
